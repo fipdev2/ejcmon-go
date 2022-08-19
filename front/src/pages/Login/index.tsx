@@ -16,7 +16,6 @@ const Login = ()=> {
 return  (
     
     <View style={styles.container}>
-
         <ImageBackground 
             style={styles.fundo} 
             source={require('../../assets/background.svg')}>
