@@ -31,21 +31,20 @@ async function create(req, res) {
         return res.status(500)
     }
 }
-//deleta um pokémon
-async function destroy(req, res) {
-    const { id } = req.params;
-    try {
-        const deleted = await Pokémon.destroy({ where: { id: id } })
-        if (deleted) {
-            return res.status(202).json("Pokémon deletado com sucesso")
-        }
-        throw new Error();
-    }
-    catch (err) {
-        return res.status(500).json("Pokémon não existe")
-    }
-
-}
+// não vai se deletar pokémon
+// async function destroy(req, res) {
+//     const { id } = req.params;
+//     try {
+//         const deleted = await Pokémon.destroy({ where: { id: id } })
+//         if (deleted) {
+//             return res.status(202).json("Pokémon deletado com sucesso")
+//         }
+//         throw new Error();
+//     }
+//     catch (err) {
+//         return res.status(500).json("Pokémon não existe")
+//     }
+//}
 module.exports = {
-    index, show, create, destroy
+    index, show, create
 }
