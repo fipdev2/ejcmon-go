@@ -20,7 +20,7 @@ return  (
             style={styles.fundo} 
             source={require('../../assets/background.svg')}>
 
-            <Text style={styles.texto1}> Seja bem-vindo</Text>
+            <Text style={styles.texto1}> Seja bem-vindo a</Text>
 
             <Image 
                 style={styles.logo}
@@ -59,8 +59,8 @@ const styles=StyleSheet.create({
     },
     
     fundo:{
-        width:428,
-        height:926,
+        width:414,
+        height:896,
     },
     
     
