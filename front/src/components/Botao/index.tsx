@@ -4,7 +4,7 @@ import AppLoading from "expo-app-loading";
 import { useFonts, Roboto_700Bold } from "@expo-google-fonts/roboto";
 
 
-const BotaoEntrar = ()=> {
+const Botao = ({param})=> {
     let [fontsLoaded,error] = useFonts({Roboto_700Bold})
 
     if (!fontsLoaded) {
@@ -15,7 +15,7 @@ const BotaoEntrar = ()=> {
     return(
         <TouchableOpacity>
             <View style={styles.btn}>
-                <Text style={styles.txt}> Entrar</Text>
+                <Text style={styles.txt}>{param}</Text>
             </View>
         </TouchableOpacity>
 
@@ -29,9 +29,10 @@ const styles=StyleSheet.create({
         height:55,
         backgroundColor:"#FFCD00",
         borderRadius:10,
-        marginLeft:67,
+        //marginLeft:67,
         alignItems:"center",
-        justifyContent:"center"
+        justifyContent:"center",
+        alignSelf: "center"
     },
 
     txt:{
@@ -42,4 +43,4 @@ const styles=StyleSheet.create({
 
     },
 })
-export default BotaoEntrar;
+export default Botao;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BackgroundCadastro, BotaoDeEntrar, ChamadaLogin, Formulario, LogoApp, Rodape, WelcomeText } from './style';
-import BotaoCadastrar from '../../components/BotaoCadastrar';
+import Botao from '../../components/Botao';
 import InputTexto from "../../components/InputTexto";
 
 export default function Cadastro() {
@@ -17,7 +17,7 @@ export default function Cadastro() {
                 <InputTexto param={"Senha"}/>
                 <InputTexto param={"Confirme sua senha"}/>
                 <InputTexto param={"CPF"}/>
-                <BotaoCadastrar/>
+                <Botao param={"Cadastrar-se"}/>
                 <Rodape>    
                     <ChamadaLogin>Já possui uma conta?</ChamadaLogin>
                     <BotaoDeEntrar>Login</BotaoDeEntrar>
