@@ -59,8 +59,8 @@ const styles=StyleSheet.create({
     },
     
     fundo:{
-        width:414,
-        height:896,
+        width:428,
+        height:926,
     },
     
     
@@ -69,12 +69,12 @@ const styles=StyleSheet.create({
         fontSize:16,
         color:"white",
         marginTop:64,
-        marginLeft:61,
+        marginLeft:57,
     },
 
     logo:{
-        width:329,
-        height:216,
+        width:327,
+        height:218,
         marginTop:6,
         marginLeft:55,
     },
