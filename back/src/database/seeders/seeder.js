@@ -1,11 +1,15 @@
 require('../../config/dotenv')();
 require('../../config/sequelize');
 
-//const seedModel = require('./Model');
+//importação das seeders
+const seedTrainer = require('./seedTrainer');
 
-(async () => {
-  try {
-    //await seedModel();
+  (async () => {
+    try {
+      await seedTrainer();
 
-  } catch(err) { console.log(err) }
-})();
+    }
+    catch (err) {
+      console.log(err)
+    }
+  })();
