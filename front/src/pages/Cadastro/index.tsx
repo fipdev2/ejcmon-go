@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { BackgroundCadastro, BotaoDeEntrar, ChamadaLogin, Formulario, LogoApp, Rodape, WelcomeText } from './style';
 import Botao from '../../components/Botao';
@@ -13,7 +13,7 @@ export default function Cadastro() {
 
             <Formulario>
                 <InputTexto param={"Nome"}/>
-                <InputTexto param={"E-mail"}/>
+                <InputTexto param={"Email"}/>
                 <InputTexto param={"Senha"}/>
                 <InputTexto param={"Confirme sua senha"}/>
                 <InputTexto param={"CPF"}/>

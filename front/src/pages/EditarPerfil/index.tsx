@@ -1,20 +1,34 @@
 import * as React from 'react';
-import { TextInput } from 'react-native';
-import { InfoTitle } from '../Perfil/style';
-import { Container, PokebolaBg, Title } from '../Pokédex/style';
+import Botao from '../../components/Botao';
+import { PokebolaBg } from '../Pokédex/style';
+import { Container2, EditInfo, FieldInput, Titulo } from './style';
 
-
-
-
-
-function EditarPerfil() {
+export default function EditarPerfil() {
     return (
-        <Container>
+        <Container2>
+
             <PokebolaBg source={require('../../assets/PokeballBG.png')} />
-            
-            
-        </Container>
+
+            <EditInfo>
+                <Titulo>Nome</Titulo>
+                <FieldInput
+                    placeholder='Thiago Barcellos'
+                />
+
+                <Titulo>Email</Titulo>
+                <FieldInput
+                    placeholder='thiagobar@ejcm.com.br'
+                />
+
+                <Titulo>CPF</Titulo>
+                <FieldInput
+                    placeholder='123.456.789-10'
+                />
+                
+            </EditInfo>
+
+            <Botao param={"Salvar"}/>
+
+        </Container2>    
     );
 }
-
-export default EditarPerfil;

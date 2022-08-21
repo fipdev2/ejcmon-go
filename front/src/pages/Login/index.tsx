@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { View, Text, Image, StyleSheet, ImageBackground } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
 import AppLoading from "expo-app-loading";
@@ -27,7 +27,7 @@ return  (
                 source={require('../../assets/ejcmongo_logo.svg')} />
 
             <View style={styles.dados}>
-                <InputTexto param={"E-mail"}/>
+                <InputTexto param={"Email"}/>
                 <InputTexto  param={"Senha"}/>
             </View>
 
