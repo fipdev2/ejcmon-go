@@ -1,5 +1,8 @@
 const { Sequelize } = require("sequelize");
+const fs = require('fs');
 
+//importando as models automaticamente
+const model = fs.readdirSync('./src/models', { withFileTypes: true }).map(item => item.name.split('.')[0]);
 
 const sequelize = (process.env.DB_CONNECTION === 'sqlite') ?
   new Sequelize({
@@ -20,8 +23,8 @@ const sequelize = (process.env.DB_CONNECTION === 'sqlite') ?
   );
 module.exports = sequelize;
 
-const model = ['Pokémon', 'Trainer', 'Catched']
-for (i = 0; i < model.length; i++) {
+//rodando a importação das models num for
+for (i = 1; i < model.length; i++) {
   require(`../models/${model[i]}`);
 }
 

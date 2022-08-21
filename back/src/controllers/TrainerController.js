@@ -1,4 +1,5 @@
 const Trainer = require('../models/Trainer');
+const Auth = require('../config/auth')
 
 //mostrar todos os treinadores
 async function index(req, res) {
@@ -25,7 +26,18 @@ async function show(req, res) {
 //criar perfil de treinador
 async function create(req, res) {
     try {
-        const trainer = await Trainer.create();
+        const { password } = req.body;
+        const HashSalt = Auth.generatePassword(password);
+        const salt = HashSalt.salt;
+        const hash = HashSalt.hash;
+        const newTrainer = {
+            name: req.body.name,
+            email: req.body.email,
+            cpf: req.body.cpf,
+            hash: hash,
+            salt: salt
+        };
+        const trainer = await Trainer.create(newTrainer);
         return res.status(201).json("Treinador registrado com sucesso :D");
     }
     catch (err) {

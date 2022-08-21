@@ -14,7 +14,16 @@ const Trainer = sequelize.define('Trainer',
         cpf: {
             type: DataTypes.NUMBER,
             allowNull: false
+        },
+        hash: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        salt: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
+
     })
 
 Trainer.associate = function (models) {
