@@ -1,6 +1,37 @@
 import styled from 'styled-components/native';
 import bg from '../../assets/background.svg';
 
+export const InputForm = styled.TextInput.attrs({
+    placeholderTextColor: "white"
+  })`
+    background-color:#2B3151;
+    width: 333;
+    height: 51;
+    border-radius: 10;
+    margin-bottom: 32;
+    font-size: 16;
+    color: white;
+    padding-left:32;
+`
+
+export const Button = styled.TouchableOpacity`
+    width: 293;
+    height: 55;
+    background-color:#FFCD00;
+    border-radius: 10;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+`
+
+export const TextButton = styled.Text`
+    font-family:Roboto;
+    font-weight: 700;
+    font-size:20;
+    color:#2B3151;
+    letter-spacing:1.3;
+`
+
 export const BackgroundCadastro = styled.View`
     width: 428;
     height: 926;
@@ -29,7 +60,7 @@ export const Formulario = styled.View`
 
 export const Rodape = styled.View`
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 16;
 `
 
