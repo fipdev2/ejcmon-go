@@ -27,8 +27,8 @@ return  (
                 source={require('../../assets/ejcmongo_logo.svg')} />
 
             <View style={styles.dados}>
-                <InputTexto param={"E-mail"}/>
-                <InputTexto  param={"Senha"}/>
+                <InputTexto placeholderText="E-mail"/>
+                <InputTexto placeholderText="Senha"/>
             </View>
 
             <BotaoEntrar/>

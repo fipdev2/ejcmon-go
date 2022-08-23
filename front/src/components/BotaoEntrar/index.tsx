@@ -18,7 +18,6 @@ const BotaoEntrar = ()=> {
                 <Text style={styles.txt}> Entrar</Text>
             </View>
         </TouchableOpacity>
-
     )
 
 }
