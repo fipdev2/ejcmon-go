@@ -14,9 +14,9 @@ export default function Cadastro() {
             <Formulario>
                 <InputTexto param={"Nome"}/>
                 <InputTexto param={"Email"}/>
+                <InputTexto param={"CPF"}/>
                 <InputTexto param={"Senha"}/>
                 <InputTexto param={"Confirme sua senha"}/>
-                <InputTexto param={"CPF"}/>
                 <Botao param={"Cadastrar-se"}/>
                 <Rodape>    
                     <ChamadaLogin>Já possui uma conta?</ChamadaLogin>
