@@ -5,9 +5,6 @@ import { BtnsWrapper } from './style';
 import { AiFillCloseCircle, AiFillStar } from 'react-icons/ai'
 import { TouchableOpacity } from 'react-native';
 
-
-
-
 function MeusPokémons() {
     return (
         <Container>

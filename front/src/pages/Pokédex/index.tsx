@@ -123,7 +123,6 @@ function Pokédex() {
                 </InfoWrapper>
             </PokeCard>
         </Container>
-
     );
 }
 

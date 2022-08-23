@@ -10,6 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@types/styled-components-react-native": "^5.1.3",
     "@expo-google-fonts/inter": "^0.2.2",
     "@expo-google-fonts/roboto": "^0.2.2",
     "create-expo-app": "^1.1.1",
@@ -26,10 +27,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
-    "@types/react-native": "~0.66.13",
-    "@types/styled-components-react-native": "^5.1.3",
     "typescript": "~4.3.5"
   },
   "private": true
