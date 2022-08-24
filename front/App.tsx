@@ -6,7 +6,6 @@ import Pokédex from './src/pages/Pokédex';
 import MeusPokémons from './src/pages/MeusPokémons';
 import Perfil from './src/pages/Perfil';
 import EditarPerfil from "./src/pages/EditarPerfil";
-import { View } from 'react-native';
 
 export default function App() {
 

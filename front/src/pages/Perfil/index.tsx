@@ -1,11 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import { Container, PokebolaBg, Title } from '../Pokédex/style';
-import { TouchableOpacity, Text } from 'react-native';
-import { render } from 'react-dom';
 import { Btn, BtnTxt, Info, InfoTitle } from './style';
-
-
-
 
 
 function Perfil() {

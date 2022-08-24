@@ -6,8 +6,8 @@ import InputTexto from "../../components/InputTexto";
 import BotaoEntrar from "../../components/BotaoEntrar";
 
 // Usei @expo-google-fonts para conseguir usar Roboto na página
-const Login = ()=> {
-    let [fontsLoaded,error] = useFonts({Roboto_400Regular, Roboto_500Medium, Roboto_700Bold})
+const Login = () => {
+    let [fontsLoaded, error] = useFonts({Roboto_400Regular, Roboto_500Medium, Roboto_700Bold})
 
     if (!fontsLoaded) {
         return<AppLoading/>

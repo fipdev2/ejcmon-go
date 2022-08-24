@@ -1,6 +1,5 @@
-import * as React from 'react';
-import { Container, Data, DataText, DataWrapper, IconWrapper, InfoTop, InfoTxt, InfoWrapper, PokebolaBg, PokeCard, PokeIcon, Search, SearchWrapper, Title, Type, YellowText } from '../Pokédex/style';
-import { GoSearch } from 'react-icons/go'
+import React from 'react';
+import { Container, Data, DataText, DataWrapper, IconWrapper, InfoTop, InfoTxt, InfoWrapper, PokebolaBg, PokeCard, PokeIcon, Title, Type, YellowText } from '../Pokédex/style';
 import { BtnsWrapper } from './style';
 import { AiFillCloseCircle, AiFillStar } from 'react-icons/ai'
 import { TouchableOpacity } from 'react-native';

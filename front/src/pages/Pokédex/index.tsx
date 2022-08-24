@@ -1,10 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { Btn, BtnIcon, BtnTxt, Container, Data, DataText, DataWrapper, IconWrapper, InfoTop, InfoTxt, InfoWrapper, PokebolaBg, PokeCard, PokeIcon, Search, SearchWrapper, Title, Type, YellowText } from './style';
 import { GoSearch } from 'react-icons/go'
 import { globalStyles } from '../../global/globalStyles';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
-
-
 
 
 function Pokédex() {
