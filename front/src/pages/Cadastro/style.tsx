@@ -8,7 +8,7 @@ export const InputForm = styled.TextInput.attrs({
     width: 333;
     height: 51;
     border-radius: 10;
-    margin-bottom: 32;
+    //margin-bottom: 32;
     font-size: 16;
     color: white;
     padding-left:32;
@@ -56,6 +56,9 @@ export const LogoApp = styled.Image `
 export const Formulario = styled.View`
     align-items: center;
     margin-top: 50;
+    margin-bottom: 32;
+    height: 400;
+    justify-content: space-between;
 `
 
 export const Rodape = styled.View`
@@ -77,4 +80,11 @@ export const BotaoDeEntrar = styled.Text`
     font-weight: 700;
     color: #FFCD00;
     margin-left: 3;
+`
+
+export const TextError = styled.Text`
+    color: #D65252;
+    font-size: 14;
+    font-weight: 400;
+    font-family: Roboto;
 `
