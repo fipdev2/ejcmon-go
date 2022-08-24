@@ -4,9 +4,6 @@ import { GoSearch } from 'react-icons/go'
 import { globalStyles } from '../../global/globalStyles';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 
-
-
-
 function Pokédex() {
     return (
         <Container>
