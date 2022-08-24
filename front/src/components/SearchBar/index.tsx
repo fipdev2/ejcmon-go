@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { GoSearch } from 'react-icons/go'
 import { Search, SearchWrapper } from './style';
 import { globalStyles } from '../../global/globalStyles';

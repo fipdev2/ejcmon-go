@@ -1,9 +1,5 @@
-import * as React from 'react';
+import React from 'react';
 import { Container, PokebolaBg, Title} from '../Pokédex/style';
-import { GoSearch } from 'react-icons/go'
-import { BtnsWrapper } from './style';
-import { AiFillCloseCircle, AiFillStar } from 'react-icons/ai'
-import { TouchableOpacity } from 'react-native';
 import { PokeCard } from '../../components/PokeCard';
 import { user } from '../../constants/user';
 import { pokemons } from '../../constants/pokemons';

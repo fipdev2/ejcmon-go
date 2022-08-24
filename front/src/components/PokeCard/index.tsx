@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Botao from '../Botao';
 import { Btn, BtnIcon, BtnTxt, Data, DataText, DataWrapper, IconWrapper, InfoTop, InfoTxt, InfoWrapper, Type, YellowText, Card, PokeIcon, BtnsWrapper } from './style';
 import { TouchableOpacity } from 'react-native';
@@ -39,7 +39,7 @@ export function PokeCard({ pokeName, index, height, pokeType, isPokedex } : Poke
             break;
     }
 
-    // Define a cor e opacidade da estrela de favoritos'
+    // Define a cor e opacidade da estrela de favoritos
     if (isFavourite) {
         starColor = 'yellow';
         starOpacity= 0.8;

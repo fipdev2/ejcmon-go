@@ -17,4 +17,10 @@ export const pokemons = [
         type: 'electric',
         height: 5,
     },
+    {
+        index: 4,
+        name: 'Squirtle',
+        type: 'water',
+        height: 6,
+    },
 ]
