@@ -3,19 +3,21 @@ import { Button, Text, TouchableOpacity, View, StyleSheet } from "react-native";
 import AppLoading from "expo-app-loading";
 import { useFonts, Roboto_700Bold } from "@expo-google-fonts/roboto";
 
+type BotaoInfo = {
+    value: string;
+}
 
-const BotaoEntrar = ()=> {
+const Botao = ({ value } : BotaoInfo) => {
     let [fontsLoaded,error] = useFonts({Roboto_700Bold})
 
     if (!fontsLoaded) {
         return<AppLoading/>
     }
 
-
     return(
         <TouchableOpacity>
             <View style={styles.btn}>
-                <Text style={styles.txt}> Entrar</Text>
+                <Text style={styles.txt}>{value}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -41,4 +43,4 @@ const styles=StyleSheet.create({
 
     },
 })
-export default BotaoEntrar;
+export default Botao;

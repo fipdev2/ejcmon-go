@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, ImageBackground } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
 import AppLoading from "expo-app-loading";
 import InputTexto from "../../components/InputTexto";
-import BotaoEntrar from "../../components/BotaoEntrar";
+import Botao from "../../components/Botao";
 
 // Usei @expo-google-fonts para conseguir usar Roboto na página
 const Login = ()=> {
@@ -31,7 +31,7 @@ return  (
                 <InputTexto placeholderText="Senha"/>
             </View>
 
-            <BotaoEntrar/>
+            <Botao value="Entrar"/>
 
             <View style={styles.below}>
                 <Text style={styles.under1}>Ainda não possui conta?</Text>

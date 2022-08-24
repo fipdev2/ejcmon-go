@@ -1,12 +1,8 @@
 import * as React from 'react';
 import { Container, PokebolaBg, Title } from '../Pokédex/style';
 import { TouchableOpacity, Text } from 'react-native';
-import { render } from 'react-dom';
 import { Btn, BtnTxt, Info, InfoTitle } from './style';
-
-
-
-
+import { user } from '../../constants/user';
 
 function Perfil() {
     return (
@@ -19,13 +15,13 @@ function Perfil() {
                 </BtnTxt>
             </Btn>
             <InfoTitle>Nome</InfoTitle>
-            <Info>Thiago Barcellos</Info>
+            <Info>{user.name}</Info>
             <InfoTitle>E-mail</InfoTitle>
-            <Info>thiagobar@ejcm.com.br</Info>
+            <Info>{user.email}</Info>
             <InfoTitle>CPF</InfoTitle>
-            <Info>123.456.789-10</Info>
+            <Info>{user.CPF}</Info>
             <InfoTitle>Pokémons Capturados</InfoTitle>
-            <Info>10 Pokémons</Info>
+            <Info>{user.capturedPokemons.length} Pokémons</Info>
         </Container>
     );
 }
