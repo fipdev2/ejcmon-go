@@ -4,11 +4,14 @@ import { TextInputMask } from 'react-native-masked-text';
 
 import { StyleSheet } from 'react-native';
 
-import { BackgroundCadastro, BotaoDeEntrar, ChamadaLogin, 
-    Formulario, LogoApp, Rodape, WelcomeText, InputForm, 
-    Button, TextButton, TextError } from './style';
+import {
+    BackgroundCadastro, BotaoDeEntrar, ChamadaLogin,
+    Formulario, LogoApp, Rodape, WelcomeText, InputForm,
+    Button, TextButton, TextError
+} from './style';
+import { useNavigation } from '@react-navigation/native';
 
-interface  FormData {
+interface FormData {
     nome: string,
     email: string,
     cpf: string,
@@ -17,9 +20,9 @@ interface  FormData {
 }
 
 export default function Cadastro() {
-    
-    const { control, handleSubmit, formState:{errors}, getValues } = useForm<FormData>({mode: "onTouched"});
 
+    const { control, handleSubmit, formState: { errors }, getValues } = useForm<FormData>({ mode: "onTouched" });
+    const navigation = useNavigation();
     const onSubmit = (data: FormData) => {
         console.log(data);
     }
@@ -35,10 +38,10 @@ export default function Cadastro() {
                     control={control}
                     name='nome'
                     defaultValue=''
-                    render={({field:{onBlur, onChange, value}}) => (
+                    render={({ field: { onBlur, onChange, value } }) => (
                         <InputForm
                             onBlur={onBlur}
-                            onChangeText={(value:any) => onChange(value)}
+                            onChangeText={(value: any) => onChange(value)}
                             value={value}
                             placeholder='Nome'
                             maxLength={35}
@@ -53,15 +56,15 @@ export default function Cadastro() {
                     }}
                 />
                 {errors.nome && <TextError>{errors.nome.message}</TextError>}
-                
+
                 <Controller
                     control={control}
                     name='email'
                     defaultValue=''
-                    render={({field:{onBlur, onChange, value}}) => (
+                    render={({ field: { onBlur, onChange, value } }) => (
                         <InputForm
                             onBlur={onBlur}
-                            onChangeText={(value:any) => onChange(value)}
+                            onChangeText={(value: any) => onChange(value)}
                             value={value}
                             placeholder='Email'
                             maxLength={256}
@@ -81,12 +84,12 @@ export default function Cadastro() {
                     control={control}
                     name='cpf'
                     defaultValue=''
-                    render={({field:{onBlur, onChange, value}}) => (
+                    render={({ field: { onBlur, onChange, value } }) => (
                         <TextInputMask
                             style={styles.input}
                             type={"cpf"}
                             onBlur={onBlur}
-                            onChangeText={(value:any) => onChange(value)}
+                            onChangeText={(value: any) => onChange(value)}
                             value={value}
                             placeholder='CPF'
                         />
@@ -105,11 +108,11 @@ export default function Cadastro() {
                     control={control}
                     name='senha'
                     defaultValue=''
-                    render={({field:{onBlur, onChange, value}}) => (
+                    render={({ field: { onBlur, onChange, value } }) => (
                         <InputForm
                             secureTextEntry={true}
                             onBlur={onBlur}
-                            onChangeText={(value:any) => onChange(value)}
+                            onChangeText={(value: any) => onChange(value)}
                             value={value}
                             placeholder='Senha'
                             maxLength={18}
@@ -129,17 +132,17 @@ export default function Cadastro() {
                     control={control}
                     name='confirmarSenha'
                     defaultValue=''
-                    render={({field:{onBlur, onChange, value}}) => (
+                    render={({ field: { onBlur, onChange, value } }) => (
                         <InputForm
                             secureTextEntry={true}
                             onBlur={onBlur}
-                            onChangeText={(value:any) => onChange(value)}
+                            onChangeText={(value: any) => onChange(value)}
                             value={value}
                             placeholder='Confirme sua senha'
                             maxLength={18}
                         />
                     )}
-                    rules={{ 
+                    rules={{
                         validate: {
                             confirmarSenha: (value) => {
                                 const { senha } = getValues();
@@ -156,24 +159,25 @@ export default function Cadastro() {
                 <TextButton>Cadastrar-se</TextButton>
             </Button>
 
-            <Rodape>    
+            <Rodape>
                 <ChamadaLogin>Já possui uma conta?</ChamadaLogin>
-                <BotaoDeEntrar>Login</BotaoDeEntrar>
+                <BotaoDeEntrar
+                    onPress={() => navigation.navigate('Login')}>Login</BotaoDeEntrar>
             </Rodape>
-            
+
         </BackgroundCadastro>
     )
 }
 
 const styles = StyleSheet.create({
-    input:{
+    input: {
         placeholderTextColor: "white",
-        backgroundColor:"#2B3151",
+        backgroundColor: "#2B3151",
         width: 333,
         height: 51,
         borderRadius: 10,
         fontSize: 16,
         color: "white",
-        paddingLeft:32,
+        paddingLeft: 32,
     }
 })

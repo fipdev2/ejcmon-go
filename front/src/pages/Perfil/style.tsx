@@ -12,7 +12,8 @@ export const Btn = styled.TouchableOpacity`
 `;
 export const BtnTxt = styled.Text`
   font-family: ${globalStyles.fonts.r700};
-  letter-spacing: 8%;
+  letter-spacing: 1.3px;
+  font-size:20px;
 `;
 export const InfoTitle = styled.Text`
   font-family: ${globalStyles.fonts.r500};

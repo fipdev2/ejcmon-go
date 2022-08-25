@@ -2,13 +2,15 @@ import React from 'react';
 import { Container, PokebolaBg, Title } from '../Pokédex/style';
 import { Btn, BtnTxt, Info, InfoTitle } from './style';
 import { user } from '../../constants/user';
+import { useNavigation } from '@react-navigation/native';
 
 function Perfil() {
+    const Navigation = useNavigation();
     return (
         <Container>
             <PokebolaBg source={require('../../assets/PokeballBG.png')} />
             <Title>Meu Perfil</Title>
-            <Btn>
+            <Btn onPress={() => Navigation.navigate('Editar Perfil')}>
                 <BtnTxt>
                     Editar Perfil
                 </BtnTxt>

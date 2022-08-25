@@ -10,9 +10,8 @@ export const Container2 = styled.View`
 `
 
 export const Titulo = styled.Text`
-    font-family: Roboto;
+    font-family: ${globalStyles.fonts.r500};
     font-size: 32;
-    font-weight: 600;
     color: white;
     align-self: left;
 `
@@ -25,9 +24,8 @@ export const EditInfo = styled.View`
 
 export const FieldInput = styled.TextInput.attrs({
     placeholderTextColor: "white"
-  })`
-    font-family: Roboto;
-    font-weight: 300;
+})`
+    font-family: ${globalStyles.fonts.r300};
     color: white;
     font-size: 24px;
     background: transparent;

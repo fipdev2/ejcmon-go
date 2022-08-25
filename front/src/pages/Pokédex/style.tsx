@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { globalStyles } from "../../global/globalStyles";
 
 export const Container = styled.View`
-  flex: 1;
+  height:100%;
   flex-direction: column;
   background: ${globalStyles.colors.primaryPurple};
   position: relative;

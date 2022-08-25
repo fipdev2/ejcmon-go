@@ -1,7 +1,9 @@
+import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 import Botao from '../../components/Botao';
 import { PokebolaBg } from '../Pokédex/style';
 import { Container2, EditInfo, FieldInput, Titulo } from './style';
+
 
 export default function EditarPerfil() {
     return (
@@ -24,11 +26,13 @@ export default function EditarPerfil() {
                 <FieldInput
                     placeholder='123.456.789-10'
                 />
-                
+
             </EditInfo>
 
-            <Botao param={"Salvar"}/>
+            <Botao value={"Salvar"}
+                
+            />
 
-        </Container2>    
+        </Container2>
     );
 }

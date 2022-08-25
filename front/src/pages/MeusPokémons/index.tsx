@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, PokebolaBg, Title} from '../Pokédex/style';
+import { Container, PokebolaBg, Title } from '../Pokédex/style';
 import { PokeCard } from '../../components/PokeCard';
 import { user } from '../../constants/user';
 import { pokemons } from '../../constants/pokemons';
@@ -11,7 +11,7 @@ function MeusPokémons() {
             <Title>Meus Pokémons</Title>
 
             {pokemons.map((pokemon) => {
-                if(user.capturedPokemons.includes(pokemon.index)) {
+                if (user.capturedPokemons.includes(pokemon.index)) {
                     return (
                         <PokeCard
                             key={pokemon.index}
