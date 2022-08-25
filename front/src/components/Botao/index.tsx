@@ -7,7 +7,7 @@ type BotaoInfo = {
     value: string;
 }
 
-const Botao = ({ value } : BotaoInfo) => {
+const BotaoEntrar = ()=> {
     let [fontsLoaded,error] = useFonts({Roboto_700Bold})
 
     if (!fontsLoaded) {
@@ -17,7 +17,7 @@ const Botao = ({ value } : BotaoInfo) => {
     return(
         <TouchableOpacity>
             <View style={styles.btn}>
-                <Text style={styles.txt}>{value}</Text>
+                <Text style={styles.txt}> Entrar</Text>
             </View>
         </TouchableOpacity>
     )
@@ -30,9 +30,10 @@ const styles=StyleSheet.create({
         height:55,
         backgroundColor:"#FFCD00",
         borderRadius:10,
-        marginLeft:67,
+        //marginLeft:67,
         alignItems:"center",
-        justifyContent:"center"
+        justifyContent:"center",
+        alignSelf: "center"
     },
 
     txt:{

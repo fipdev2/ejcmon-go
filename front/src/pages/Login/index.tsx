@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { View, Text, Image, StyleSheet, ImageBackground } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
 import AppLoading from "expo-app-loading";
@@ -20,18 +20,18 @@ return  (
             style={styles.fundo} 
             source={require('../../assets/background.svg')}>
 
-            <Text style={styles.texto1}> Seja bem-vindo</Text>
+            <Text style={styles.texto1}> Seja bem-vindo a</Text>
 
             <Image 
                 style={styles.logo}
                 source={require('../../assets/ejcmongo_logo.svg')} />
 
             <View style={styles.dados}>
-                <InputTexto placeholderText="E-mail"/>
-                <InputTexto placeholderText="Senha"/>
+                <InputTexto param={"E-mail"}/>
+                <InputTexto  param={"Senha"}/>
             </View>
 
-            <Botao value="Entrar"/>
+            <BotaoEntrar/>
 
             <View style={styles.below}>
                 <Text style={styles.under1}>Ainda não possui conta?</Text>
@@ -69,12 +69,12 @@ const styles=StyleSheet.create({
         fontSize:16,
         color:"white",
         marginTop:64,
-        marginLeft:61,
+        marginLeft:57,
     },
 
     logo:{
-        width:329,
-        height:216,
+        width:327,
+        height:218,
         marginTop:6,
         marginLeft:55,
     },
