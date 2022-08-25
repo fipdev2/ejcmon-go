@@ -33,4 +33,4 @@ async function getDetails(req, res) {
         return res.status(500).json({ err })
     }
 }
-module.exports = { login, getDetails }
+module.exports = { login, getDetails };

@@ -5,12 +5,11 @@ const sequelize = require('../config/sequelize');
 const Catched = sequelize.define('Catched',
     {
         amount: {
-            type: DataTypes.NUMBER
+            type: DataTypes.NUMBER,
         }
     },
-    {
-        timestamps: true
-    }
+    { timestamps: true }
+    
 )
 
 

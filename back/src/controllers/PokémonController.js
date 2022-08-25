@@ -3,8 +3,8 @@ const Pokémon = require('../models/Pokémon');
 //mostra todos os pokémons
 async function index(req, res) {
     try {
-        const pokémons = await Pokémon.findAll()
-        return res.status(200).json({ pokémons })
+        const pokémon = await Pokémon.findAll();
+        return res.status(200).json({ pokémon })
     }
     catch (err) {
         return res.status(500).json({ err })
@@ -23,6 +23,7 @@ async function show(req, res) {
 }
 //cria um pokémon
 async function create(req, res) {
+
     try {
         const pokémon = await Pokémon.create(req.body);
         return res.status(201)

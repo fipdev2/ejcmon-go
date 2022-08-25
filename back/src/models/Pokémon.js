@@ -22,6 +22,9 @@ const Pokémon = sequelize.define('Pokémon',
         sex: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        photo: {
+            type: DataTypes.TEXT
         }
     },
     { timestamps: false })
@@ -29,7 +32,7 @@ Pokémon.associate = function (models) {
     Pokémon.belongsToMany(models.Trainer, {
         through: models.Catched,
         as: 'catched',
-        foreignKey: 'Catched_Pokémon'
+        foreignKey: 'PokémonId'
     })
 }
 module.exports = Pokémon;

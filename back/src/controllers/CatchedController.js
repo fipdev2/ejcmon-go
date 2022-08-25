@@ -1,51 +1,43 @@
-const Catched = require('../models/Pokémon');
+const Catched = require('../models/Catched');
+const Pokémon = require('../models/Pokémon');
+const Trainer = require('../models/Trainer');
 
-//mostra todos os pokémons capturados
+async function capture(req, res) {
+    const { trainerId, pokemonId } = req.params;
+    try {
+        let trainer = await Trainer.findByPk(trainerId);
+        const pokémon = await Pokémon.findByPk(pokemonId);
+        await trainer.addCatched(pokémon);
+        await Catched.update(req.body, { where: { PokémonId: pokemonId, TrainerId: trainerId } })
+        return res.status(200).json({ msg: "Pokémon capturado!" });
+
+    } catch (error) {
+        return res.status(500).json({ error: "Pokémon bateu, desviou e não entrou na sua pokebola" });
+    }
+}
+
+async function remove(req, res) {
+    const { trainerId, pokemonId } = req.params;
+    try {
+        let trainer = await Trainer.findByPk(trainerId);
+        const pokémon = await Pokémon.findByPk(pokemonId);
+        await trainer.removeCatched(pokémon);
+        return res.status(200).json({ msg: "Você abandonou um pokémon :(" });
+    } catch (err) {
+        return res.status(500).json({ err: "Erro ao remover pokémon" });
+
+    }
+}
 async function index(req, res) {
+    const { trainerId } = req.params;
     try {
-        const catcheds = await Catched.findAll()
-        return res.status(200).json({ catcheds })
+        const catched = await Catched.findAll({ where: { TrainerId: trainerId } });
+        return res.status(200).json({catched});
     }
     catch (err) {
-        return res.status(500).json({ err })
+        return res.status(500).json({ err: "Não achamos seus pokémons" })
     }
-}
-//mostra apenas um pokémon capturado
-async function show(req, res) {
-    const { id } = req.params;
-    try {
-        const catched = await Catched.findByPk(id);
-        return res.status(200).json({ catched });
-    }
-    catch (err) {
-        return res.status(500).json("Este id não pertence a nenhum dos seus pokémons")
-    }
-}
-//captura um pokémon
-async function create(req, res) {
-    try {
-        const catched = await Catched.create(req.body);
-        return res.status(201)
-    }
-    catch (err) {
-        return res.status(500)
-    }
-}
-//deleta um pokémon de "meus pokémons"
-async function destroy(req, res) {
-    const { id } = req.params;
-    try {
-        const catched = await Catched.destroy({ where: { id: id } })
-        if (deleted) {
-            return res.status(202).json("Este pokémon não é mais seu :(")
-        }
-        throw new Error();
-    }
-    catch (err) {
-        return res.status(500).json("Pokémon não existe")
-    }
-
 }
 module.exports = {
-    index, show, create, destroy
+    capture, remove, index
 }
