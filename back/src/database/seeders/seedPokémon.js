@@ -1,26 +1,22 @@
 const faker = require('faker-br');
 const Pokémon = require('../../models/Pokémon');
-const Pokedex = require('pokedex-promise-v2')();
-const P = new Pokedex();
+const { pokemons } = require('./constants');
+
 
 
 
 const seedPokémon = async function () {
-    const PokémonArray = [];
-    let i;
-    for (i = 1; i < 800; i++) {
-        P.getPokemonByName(i, res, error).then((res) => {
-            PokémonArray.push({
-                name: res.name,
-                height: res.height,
-                pokédex_index: res.id,
-                pokémon_type: res.types[0].type,
-                sex: faker.random.arrayElement(['male', 'female']),
-                photo: res.sprites.front_default
-            })
+    let PokémonArray = [];
+    for (let i = 0; i < pokemons.length; i++) {
+        PokémonArray.push({
+            name: pokemons[i].name,
+            height: pokemons[i].height,
+            pokédex_index: pokemons[i].pokédex_index,
+            pokémon_type: pokemons[i].pokémon_type,
+            sex: pokemons[i].sex,
+            photo: pokemons[i].photo
         })
     }
-
     try {
         await Pokémon.sync({ force: true });
         await Pokémon.bulkCreate(PokémonArray);
