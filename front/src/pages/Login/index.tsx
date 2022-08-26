@@ -8,12 +8,12 @@ import { useNavigation } from "@react-navigation/native";
 
 // Usei @expo-google-fonts para conseguir usar Roboto na página
 const Login = () => {
+    const navigation = useNavigation();
     let [fontsLoaded, error] = useFonts({ Roboto_400Regular, Roboto_500Medium, Roboto_700Bold })
 
     if (!fontsLoaded) {
         return <AppLoading />
     }
-    const navigation = useNavigation();
     return (
 
         <View style={styles.container}>
@@ -34,12 +34,12 @@ const Login = () => {
 
                 <Botao
                     value={"Entrar"}
-                    onPress={() => navigation.navigate('Tabs')} />
+                    onPress={() => navigation.navigate('Tabs' as never)} />
 
                 <View style={styles.below}>
                     <Text style={styles.under1}>Ainda não possui conta?</Text>
                     <Text style={styles.under2}
-                        onPress={() => navigation.navigate('Cadastro')}>Registre-se</Text>
+                        onPress={() => navigation.navigate('Cadastro' as never)}>Registre-se</Text>
                 </View>
 
             </ImageBackground>

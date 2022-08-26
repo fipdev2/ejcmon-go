@@ -10,7 +10,7 @@ function Perfil() {
         <Container>
             <PokebolaBg source={require('../../assets/PokeballBG.png')} />
             <Title>Meu Perfil</Title>
-            <Btn onPress={() => Navigation.navigate('Editar Perfil')}>
+            <Btn onPress={() => Navigation.navigate('Editar Perfil' as never)}>
                 <BtnTxt>
                     Editar Perfil
                 </BtnTxt>

@@ -10,7 +10,7 @@ function Router() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen
-                    name="Login"
+                    name="Login" 
                     component={Login}
                     options={{
                         headerShown: false

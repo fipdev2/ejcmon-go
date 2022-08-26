@@ -162,7 +162,7 @@ export default function Cadastro() {
             <Rodape>
                 <ChamadaLogin>Já possui uma conta?</ChamadaLogin>
                 <BotaoDeEntrar
-                    onPress={() => navigation.navigate('Login')}>Login</BotaoDeEntrar>
+                    onPress={() => navigation.navigate('Login' as never)}>Login</BotaoDeEntrar>
             </Rodape>
 
         </BackgroundCadastro>

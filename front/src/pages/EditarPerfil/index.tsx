@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 import Botao from '../../components/Botao';
 import { PokebolaBg } from '../Pokédex/style';
