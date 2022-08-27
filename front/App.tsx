@@ -1,11 +1,10 @@
-import Login from './src/pages/Login';
-import Pokédex from './src/pages/Pokédex';
-import { useFonts, Roboto_300Light, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold, Roboto_900Black } from "@expo-google-fonts/roboto";
-import React from "react";
+import * as React from "react";
 import AppLoading from "expo-app-loading";
-import MeusPokémons from './src/pages/MeusPokémons';
-import Perfil from './src/pages/Perfil';
-import EditarPerfil from './src/pages/EditarPerfil';
+
+
+import { useFonts, Roboto_300Light, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold, Roboto_900Black } from "@expo-google-fonts/roboto";
+import Router from "./src/Router";
+import Cadastro from "./src/pages/Cadastro";
 
 
 
@@ -15,10 +14,10 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />
   }
+
   return (
     <>
-      <EditarPerfil />
-
+      <Router />
     </>
 
   );

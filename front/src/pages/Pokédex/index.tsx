@@ -1,129 +1,38 @@
-import * as React from 'react';
-import { Btn, BtnIcon, BtnTxt, Container, Data, DataText, DataWrapper, IconWrapper, InfoTop, InfoTxt, InfoWrapper, PokebolaBg, PokeCard, PokeIcon, Search, SearchWrapper, Title, Type, YellowText } from './style';
-import { GoSearch } from 'react-icons/go'
-import { globalStyles } from '../../global/globalStyles';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
-
-
-
+import React, { useState } from 'react';
+import { Container, PokebolaBg, Title } from './style';
+import { PokeCard } from '../../components/PokeCard';
+import { SearchBar } from '../../components/SearchBar';
+import { pokemons } from '../../constants/pokemons';
 
 function Pokédex() {
+    const [searchValue, setSearchValue] = useState('');
+
+    const getSearchValue = (event: any) => {
+        setSearchValue(event.target.value);
+        console.log(searchValue);
+    }
+
     return (
         <Container>
             <PokebolaBg source={require('../../assets/PokeballBG.png')} />
             <Title>Pokédex</Title>
-            <SearchWrapper>
-                <Search placeholder="Buscar Pokémon">
-                </Search>
-                <GoSearch style={{ color: globalStyles.colors.primaryPurple, fontSize: "32px" }} />
-            </SearchWrapper>
-            <PokeCard>
-                <IconWrapper>
-                    <PokeIcon source={require('../../assets/Charmander.png')} />
-                </IconWrapper>
-                <InfoWrapper>
-                    <InfoTop>
-                        <InfoTxt>
-                            Charmander
-                        </InfoTxt>
-                        <Type source={require('../../assets/fire.png')} />
-                    </InfoTop>
-                    <DataWrapper>
-                        <Data>
-                            <DataText>
-                                Index:
-                            </DataText>
-                            <YellowText>
-                                176
-                            </YellowText>
-                        </Data>
-                        <Data>
-                            <DataText>
-                                Altura:
-                            </DataText>
-                            <YellowText>
-                                6 pés
-                            </YellowText>
-                        </Data>
-                    </DataWrapper>
-                    <Btn>
-                        <BtnTxt>Capturar</BtnTxt>
-                        <BtnIcon source={require('../../assets/ActivePokeball.png')} />
-                    </Btn>
-                </InfoWrapper>
-            </PokeCard>
-            <PokeCard>
-                <IconWrapper>
-                    <PokeIcon source={require('../../assets/Charmander.png')} />
-                </IconWrapper>
-                <InfoWrapper>
-                    <InfoTop>
-                        <InfoTxt>
-                            Charmander
-                        </InfoTxt>
-                        <Type source={require('../../assets/fire.png')} />
-                    </InfoTop>
-                    <DataWrapper>
-                        <Data>
-                            <DataText>
-                                Index:
-                            </DataText>
-                            <YellowText>
-                                176
-                            </YellowText>
-                        </Data>
-                        <Data>
-                            <DataText>
-                                Altura:
-                            </DataText>
-                            <YellowText>
-                                6 pés
-                            </YellowText>
-                        </Data>
-                    </DataWrapper>
-                    <Btn>
-                        <BtnTxt>Capturar</BtnTxt>
-                        <BtnIcon source={require('../../assets/ActivePokeball.png')} />
-                    </Btn>
-                </InfoWrapper>
-            </PokeCard>
-            <PokeCard>
-                <IconWrapper>
-                    <PokeIcon source={require('../../assets/Charmander.png')} />
-                </IconWrapper>
-                <InfoWrapper>
-                    <InfoTop>
-                        <InfoTxt>
-                            Charmander
-                        </InfoTxt>
-                        <Type source={require('../../assets/fire.png')} />
-                    </InfoTop>
-                    <DataWrapper>
-                        <Data>
-                            <DataText>
-                                Index:
-                            </DataText>
-                            <YellowText>
-                                176
-                            </YellowText>
-                        </Data>
-                        <Data>
-                            <DataText>
-                                Altura:
-                            </DataText>
-                            <YellowText>
-                                6 pés
-                            </YellowText>
-                        </Data>
-                    </DataWrapper>
-                    <Btn>
-                        <BtnTxt>Capturar</BtnTxt>
-                        <BtnIcon source={require('../../assets/ActivePokeball.png')} />
-                    </Btn>
-                </InfoWrapper>
-            </PokeCard>
-        </Container>
 
+            <SearchBar searchValue={getSearchValue} />
+
+            {/* Mapear o array */}
+            {
+                pokemons.map((pokemon) =>
+                    <PokeCard
+                        key={pokemon.index}
+                        pokeName={pokemon.name}
+                        pokeType={pokemon.type}
+                        index={pokemon.index}
+                        height={pokemon.height}
+                        isPokedex={true}
+                    />
+                )
+            }
+        </Container>
     );
 }
 

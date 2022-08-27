@@ -1,10 +1,15 @@
-import React from "react";
+import * as React from 'react';
+
 import { View, Text, TextInput, StyleSheet } from "react-native";
 
-export default function InputTexto({param}){
+type InputTextoInfo = { 
+    placeholderText: string;
+}
+
+export default function InputTexto({ placeholderText } : InputTextoInfo){
     return(
         <View style={styles.container}>
-            <TextInput style={styles.caixatexto} placeholder={param}/>
+            <TextInput style={styles.caixatexto} placeholder={placeholderText}/>
         </View>
     )
 }
