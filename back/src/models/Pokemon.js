@@ -1,7 +1,7 @@
 const DataTypes = require('sequelize');
 const sequelize = require('../config/sequelize');
 
-const Pokémon = sequelize.define('Pokémon',
+const Pokemon = sequelize.define('Pokemon',
     {
         name: {
             type: DataTypes.STRING,
@@ -24,15 +24,15 @@ const Pokémon = sequelize.define('Pokémon',
             allowNull: false
         },
         photo: {
-            type: DataTypes.TEXT
+            type: DataTypes.STRING
         }
     },
     { timestamps: false })
-Pokémon.associate = function (models) {
-    Pokémon.belongsToMany(models.Trainer, {
+Pokemon.associate = function (models) {
+    Pokemon.belongsToMany(models.Trainer, {
         through: models.Catched,
         as: 'catched',
-        foreignKey: 'PokémonId'
+        foreignKey: 'PokemonId'
     })
 }
-module.exports = Pokémon;
+module.exports = Pokemon;

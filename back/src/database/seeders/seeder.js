@@ -3,7 +3,7 @@ require('../../config/sequelize');
 
 //importação das seeders
 const seedTrainer = require('./seedTrainer');
-const seedPokémon = require('./seedPokémon');
+const seedPokémon = require('./seedPokemon');
   (async () => {
     try {
       await seedTrainer();

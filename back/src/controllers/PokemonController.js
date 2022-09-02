@@ -1,9 +1,9 @@
-const Pokémon = require('../models/Pokémon');
+const Pokemon = require('../models/Pokemon');
 
 //mostra todos os pokémons
 async function index(req, res) {
     try {
-        const pokémon = await Pokémon.findAll();
+        const pokemon = await Pokemon.findAll();
         return res.status(200).json({ pokémon })
     }
     catch (err) {
@@ -14,7 +14,7 @@ async function index(req, res) {
 async function show(req, res) {
     const { id } = req.params;
     try {
-        const pokémon = await Pokémon.findByPk(id);
+        const pokémon = await Pokemon.findByPk(id);
         return res.status(200).json({ pokémon });
     }
     catch (err) {
@@ -25,7 +25,7 @@ async function show(req, res) {
 async function create(req, res) {
 
     try {
-        const pokémon = await Pokémon.create(req.body);
+        const pokémon = await Pokemon.create(req.body);
         return res.status(201)
     }
     catch (err) {

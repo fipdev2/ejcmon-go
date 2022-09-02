@@ -1,13 +1,17 @@
 const { Router } = require('express');
 //importações
-const PokémonController = require('../controllers/PokémonController');
+const PokémonController = require('../controllers/PokemonController');
 const TrainerController = require('../controllers/TrainerController');
 const CatchedController = require('../controllers/CatchedController');
 const AuthController = require('../controllers/AuthController');
 const passport = require('passport');
-const validator = require('../config/validator')
+// const validator = require('../config/validator')
 
 const router = Router();
+//Auth Routes
+router.use('/private', passport.authenticate("jwt", { session: false }));
+router.post('/login', AuthController.login);
+router.get('/private/getDetails', AuthController.getDetails);
 //Pokémon Routes
 router.get('/pokemons', PokémonController.index);
 router.get('/pokemons/:id', PokémonController.show);
@@ -22,12 +26,8 @@ router.delete('/private/trainers/:id', TrainerController.destroy);
 
 //Catched Routes
 router.get('/private/mypokemons/:trainerId', CatchedController.index)
-router.post('/private/mypokemons/:trainerId/:pokemonId', CatchedController.capture)
+router.post('/private/mypokemons/:pokemonId', CatchedController.capture)
 router.delete('/private/mypokemons/:trainerId/:pokemonId', CatchedController.remove)
 
-//Auth Routes
-router.use('/private', passport.authenticate("jwt", { session: false }));
-router.post('/login', AuthController.login);
-router.get('/private/getDetails', AuthController.getDetails);
 
 module.exports = router;

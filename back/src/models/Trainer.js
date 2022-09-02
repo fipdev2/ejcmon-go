@@ -17,17 +17,17 @@ const Trainer = sequelize.define('Trainer',
         },
         hash: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         salt: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         }
 
     })
 
 Trainer.associate = function (models) {
-    Trainer.belongsToMany(models.Pokémon, {
+    Trainer.belongsToMany(models.Pokemon, {
         through: models.Catched,
         as: 'catched',
         foreignKey: 'TrainerId'

@@ -1,14 +1,16 @@
 const Catched = require('../models/Catched');
-const Pokémon = require('../models/Pokémon');
+const Pokemon = require('../models/Pokemon');
 const Trainer = require('../models/Trainer');
 
 async function capture(req, res) {
-    const { trainerId, pokemonId } = req.params;
+    const { pokemonId } = req.params;
     try {
-        let trainer = await Trainer.findByPk(trainerId);
-        const pokémon = await Pokémon.findByPk(pokemonId);
-        await trainer.addCatched(pokémon);
-        await Catched.update(req.body, { where: { PokémonId: pokemonId, TrainerId: trainerId } })
+        const token = Auth.getToken(req);
+        const payload = Auth.decodeJwt(token);
+        let trainer = await Trainer.findByPk(payload.sub);
+        const pokemon = await Pokemon.findByPk(pokemonId);
+        await trainer.addCatched(pokemon);
+        await Catched.update(req.body, { where: { PokémonId: pokemonId, TrainerId: payload.sub } })
         return res.status(200).json({ msg: "Pokémon capturado!" });
 
     } catch (error) {
@@ -17,11 +19,13 @@ async function capture(req, res) {
 }
 
 async function remove(req, res) {
-    const { trainerId, pokemonId } = req.params;
+    const { pokemonId } = req.params;
     try {
-        let trainer = await Trainer.findByPk(trainerId);
-        const pokémon = await Pokémon.findByPk(pokemonId);
-        await trainer.removeCatched(pokémon);
+        const token = Auth.getToken(req);
+        const payload = Auth.decodeJwt(token);
+        const trainer = await Trainer.findByPk(payload.sub);
+        const pokemon = await Pokemon.findByPk(pokemonId);
+        await trainer.removeCatched(pokemon);
         return res.status(200).json({ msg: "Você abandonou um pokémon :(" });
     } catch (err) {
         return res.status(500).json({ err: "Erro ao remover pokémon" });
@@ -29,10 +33,12 @@ async function remove(req, res) {
     }
 }
 async function index(req, res) {
-    const { trainerId } = req.params;
     try {
-        const catched = await Catched.findAll({ where: { TrainerId: trainerId } });
-        return res.status(200).json({catched});
+        const token = Auth.getToken(req);
+        const payload = Auth.decodeJwt(token);
+        // const catched = await Catched.findAll({ where: { TrainerId: payload.sub } });
+        const pokemon = await Pokemon.findAll({ where: { TrainerId: payload.sub } })
+        return res.status(200).json({ pokemon });
     }
     catch (err) {
         return res.status(500).json({ err: "Não achamos seus pokémons" })
