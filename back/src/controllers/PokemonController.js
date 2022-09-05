@@ -4,7 +4,7 @@ const Pokemon = require('../models/Pokemon');
 async function index(req, res) {
     try {
         const pokemon = await Pokemon.findAll();
-        return res.status(200).json({ pokémon })
+        return res.status(200).json({ pokemon })
     }
     catch (err) {
         return res.status(500).json({ err })
@@ -14,8 +14,8 @@ async function index(req, res) {
 async function show(req, res) {
     const { id } = req.params;
     try {
-        const pokémon = await Pokemon.findByPk(id);
-        return res.status(200).json({ pokémon });
+        const pokemon = await Pokemon.findByPk(id);
+        return res.status(200).json({ pokemon });
     }
     catch (err) {
         return res.status(500).json("Este id não pertence a nenhum pokémon")
@@ -25,7 +25,7 @@ async function show(req, res) {
 async function create(req, res) {
 
     try {
-        const pokémon = await Pokemon.create(req.body);
+        const pokemon = await Pokemon.create(req.body);
         return res.status(201)
     }
     catch (err) {

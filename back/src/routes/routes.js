@@ -25,9 +25,9 @@ router.put('/private/trainers/:id',  TrainerController.update);
 router.delete('/private/trainers/:id', TrainerController.destroy);
 
 //Catched Routes
-router.get('/private/mypokemons/:trainerId', CatchedController.index)
 router.post('/private/mypokemons/:pokemonId', CatchedController.capture)
-router.delete('/private/mypokemons/:trainerId/:pokemonId', CatchedController.remove)
+router.get('/private/mypokemons', CatchedController.index)
+router.delete('/private/mypokemons/:pokemonId', CatchedController.remove)
 
 
 module.exports = router;

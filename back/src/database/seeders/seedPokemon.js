@@ -1,8 +1,6 @@
 const Pokemon = require('../../models/Pokemon');
 const faker = require('faker-br');
-const express = require('express');
 const axios = require('axios');
-const app = express();
 
 
 const seedPokemon = async function () {

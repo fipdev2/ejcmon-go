@@ -9,7 +9,7 @@ require('./middlewares/jwtPassport')(passport);
 
 const app = express();
 const port = process.env.PORT;
-//const cors = require('cors');
+// const cors = require('cors');
 const routes = require('./routes/routes');
 
 
@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.session());
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
