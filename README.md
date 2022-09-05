@@ -4,8 +4,8 @@
 
 ## Olá
 
-Esse é o meu projetinho do EJCMon-Go! que tem branches relacionadas às aulas de React e a minha avaliação de TechLead (back end da aplicação)
-na branch [psiProjetos/avaliacao1/filipe](https://gitlab.com/fipmagdev/ejcmon-go/-/tree/psiProjetos/avaliacao1/filipe)
+Esse é o meu projetinho do EJCMon-Go! que tem branches relacionadas às aulas de React Native e a minha avaliação de TechLead, que é o back end da aplicação.
+A avaliação se encontra na branch [psiProjetos/avaliacao1/filipe](https://gitlab.com/fipmagdev/ejcmon-go/-/tree/psiProjetos/avaliacao1/filipe)
 
 ## Tecnologias usadas
 
