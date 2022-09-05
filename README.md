@@ -18,6 +18,7 @@ na branch [psiProjetos/avaliacao1/filipe](https://gitlab.com/fipmagdev/ejcmon-go
 ```
 git clone https://gitlab.com/fipmagdev/ejcmon-go.git
 cd front
+git checkout aula5/rotas/filipe
 yarn install
 expo start
 ```
@@ -26,6 +27,7 @@ expo start
 
 ```
 cd back
+git checkout psiProjetos/avaliacao1/filipe
 npm install
 npm run keys
 npm run migrate
