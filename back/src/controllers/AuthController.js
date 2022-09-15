@@ -5,7 +5,7 @@ async function login(req, res) {
     try {
         const trainer = await Trainer.findOne({ where: { email: req.body.email } })
         if (!trainer) {
-            return res.status(404).json('Treinador não cadastrado :(');
+            return res.status(404).json({ message: 'Treinador não cadastrado :(' });
         }
         const { password } = req.body;
         if (Auth.checkPassword(password, trainer.hash, trainer.salt)) {

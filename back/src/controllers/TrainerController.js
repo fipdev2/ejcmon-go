@@ -23,6 +23,19 @@ async function show(req, res) {
     }
 }
 
+//filtrar um treinador por token
+async function authShow(req, res) {
+    try {
+        const token = Auth.getToken(req);
+        const payload = Auth.decodeJwt(token);
+        const trainer = await Trainer.findByPk(payload.sub);
+        return res.status(200).json({ trainer })
+    }
+    catch (err) {
+        return res.status(500).json("Treinador não encontrado")
+    }
+}
+
 //criar perfil de treinador
 async function create(req, res) {
     try {
@@ -45,6 +58,34 @@ async function create(req, res) {
     }
 }
 //atualizar alguma instância do treinador
+async function authUpdate(req, res) {
+    try {
+        const token = Auth.getToken(req);
+        const payload = Auth.decodeJwt(token);
+        const [updated] = await Trainer.update(req.body, { where: { id: payload.sub } });
+        if (updated) {
+            const trainer = await Trainer.findByPk(id);
+            return res.status(202).send(trainer);
+        }
+    }
+    catch (err) {
+        return res.status(500).json({ err })
+    }
+}
+//deleta o treinador
+async function authDestroy(req, res) {
+    try {
+        const token = Auth.getToken(req);
+        const payload = Auth.decodeJwt(token);
+        const deleted = await Trainer.destroy({ where: { id: payload.sub } })
+        if (deleted) {
+            return res.status(202).json("Treinador deletado :(")
+        }
+    }
+    catch (err) {
+        return res.status(500).json({ err });
+    }
+}
 async function update(req, res) {
     const { id } = req.params;
     try {
@@ -73,5 +114,12 @@ async function destroy(req, res) {
 }
 
 module.exports = {
-    create, show, index, update, destroy
+    create,
+    authShow, 
+    show, 
+    index, 
+    authUpdate, 
+    authDestroy,
+    update, 
+    destroy
 }

@@ -2,11 +2,9 @@ const faker = require('faker-br');
 const Pokémon = require('../../models/Pokémon');
 const { pokemons } = require('./constants');
 
-
-
-
 const seedPokémon = async function () {
     let PokémonArray = [];
+    
     for (let i = 0; i < pokemons.length; i++) {
         PokémonArray.push({
             name: pokemons[i].name,
